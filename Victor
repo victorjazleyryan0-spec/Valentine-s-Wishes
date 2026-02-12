@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Care Package</title>
+    <style>
+        :root {
+            --bg-color: #fef5e7;
+            --card-bg: #ffffff;
+            --btn-bg: #f0f7ff;
+            --text-main: #5a8fb3;
+            --accent-red: #c62828;
+            --note-yellow: #fff176;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        h1 { color: var(--accent-red); margin-bottom: 5px; font-size: 24px; }
+        .subtitle { color: var(--text-main); margin-bottom: 25px; font-size: 16px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            background: var(--btn-bg);
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .item:hover { transform: scale(1.03); }
+        .item span { display: block; font-size: 20px; }
+        .item p { margin: 5px 0 0; color: var(--text-main); font-size: 14px; }
+
+        .instruction { color: var(--accent-red); font-weight: bold; margin: 20px 0; }
+
+        .hug-box {
+            background: var(--btn-bg);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            font-size: 40px;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.1s;
+            user-select: none;
+        }
+
+        .heart:active { transform: scale(1.5); }
+
+        .note {
+            background: var(--note-yellow);
+            padding: 10px;
+            transform: rotate(-2deg);
+            font-size: 14px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Happy Valentine's Day! ✨</h1>
+    <p class="subtitle">A little digital care package for you:</p>
+
+    <div class="grid">
+        <button class="item" onclick="showMessage('💭', 'I\'m thinking of how lucky I am to know you!')">
+            <span>💭</span><p>A Thought</p>
+        </button>
+        <button class="item" onclick="showMessage('🌷', 'Here is a digital flower that will never wilt.')">
+            <span>🌷</span><p>A Flower</p>
+        </button>
+        <button class="item" onclick="showMessage('🍀', 'Sending you extra luck for everything you do today!')">
+            <span>🍀</span><p>Good Luck</p>
+        </button>
+        <button class="item" onclick="showMessage('🍯', 'Sweet fact: You make every day better.')">
+            <span>🍯</span><p>Sweet Fact</p>
+        </button>
+    </div>
+
+    <p class="instruction" id="display-text">Click an item above!</p>
+
+    <div class="hug-box">
+        <p style="color: var(--text-main); font-size: 14px;">Need a hug? Hold the heart:</p>
+        <div class="heart" id="heart">❤️</div>
+    </div>
+
+    <div class="note" onclick="alert('Because you are kind, smart, and wonderful!')">
+        <strong>Note to self:</strong> You are awesome. (Click to see why)
+    </div>
+</div>
+
+<script>
+    function showMessage(emoji, text) {
+        const display = document.getElementById('display-text');
+        display.innerHTML = `${emoji} ${text}`;
+        display.style.color = '#5a8fb3';
+    }
+</script>
+
+</body>
+</html>
